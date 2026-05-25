@@ -103,3 +103,5 @@ export default async function fileToText(
     }
   })
 }
+
+export type { FileToTextOptions } from './types.js'

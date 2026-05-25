@@ -6,3 +6,4 @@ import type { FileToTextOptions } from './types.js';
  * @returns A promise that resolves to the extracted text from the file.
  */
 export default function fileToText(filePath: string, options?: FileToTextOptions): Promise<string>;
+export type { FileToTextOptions } from './types.js';

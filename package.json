@@ -24,12 +24,14 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": "./index.js"
+    ".": "./index.js",
+    "./debug": "./debug.config.js"
   },
   "files": [
     "parsers/*",
     "debug.*",
-    "index.*"
+    "index.*",
+    "types.*"
   ],
   "scripts": {
     "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test test/test.js",
