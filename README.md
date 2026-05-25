@@ -38,3 +38,19 @@ Support for image files (i.e. jpg, png, gif) relies on
 Support for audio file transcriptions (i.e. wav, mp3) relies on
 [`@cityssm/whisper-speech-to-text`](https://www.npmjs.com/package/@cityssm/whisper-speech-to-text).
 See the package prerequisites, which include Python, FFmpeg, and OpenAI Whisper.
+
+## Usage
+
+**Options are coming!**
+
+```javascript
+import fileToText from '@cityssm/file-to-text'
+
+const text1 = await fileToText('path/to/file.txt')
+
+// Use OpenAI Whisper to convert speech to text locally.
+const text2 = await fileToText('path/to/voicemail.wav')
+
+// Use the Tesseract OCR engine to convert images to text.
+const text3 = await fileToText('path/to/scannedDocument.png')
+```
