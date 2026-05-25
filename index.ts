@@ -54,7 +54,7 @@ export default async function fileToText(
       const { default: officeToText } =
         await import('./parsers/officeparser.parser.js')
 
-      return await officeToText(filePath)
+      return await officeToText(filePath, options)
     } catch (error) {
       throw new Error('Error processing file with "officeparser".', {
         cause: error
@@ -65,7 +65,7 @@ export default async function fileToText(
       const { default: speechToText } =
         await import('./parsers/whisper.parser.js')
 
-      return await speechToText(filePath)
+      return await speechToText(filePath, options)
     } catch (error) {
       throw new Error(
         'Error processing audio file with "@cityssm/whisper-speech-to-text".',

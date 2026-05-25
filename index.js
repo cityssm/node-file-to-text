@@ -39,7 +39,7 @@ export default async function fileToText(filePath, options) {
     else if (officeParserMimeTypes.has(mimeType) && hasOfficeParser) {
         try {
             const { default: officeToText } = await import('./parsers/officeparser.parser.js');
-            return await officeToText(filePath);
+            return await officeToText(filePath, options);
         }
         catch (error) {
             throw new Error('Error processing file with "officeparser".', {
@@ -50,7 +50,7 @@ export default async function fileToText(filePath, options) {
     else if (mimeType.startsWith('audio/') && hasWhisper) {
         try {
             const { default: speechToText } = await import('./parsers/whisper.parser.js');
-            return await speechToText(filePath);
+            return await speechToText(filePath, options);
         }
         catch (error) {
             throw new Error('Error processing audio file with "@cityssm/whisper-speech-to-text".', { cause: error });

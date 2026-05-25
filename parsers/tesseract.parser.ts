@@ -4,7 +4,7 @@ import type { FileToTextOptions } from '../types.js'
 
 export default async function imageToText(
   filePath: string,
-  options?: FileToTextOptions
+  _options?: FileToTextOptions
 ): Promise<string> {
   const worker = await createWorker()
 

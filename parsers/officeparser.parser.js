@@ -1,5 +1,5 @@
 import { OfficeConverter } from 'officeparser';
-export default async function officeToText(filePath) {
+export default async function officeToText(filePath, _options) {
     const result = await OfficeConverter.convert(filePath, 'md');
     if (typeof result.value === 'string') {
         return result.value;
