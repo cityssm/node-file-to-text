@@ -1,0 +1,54 @@
+{
+  "name": "@cityssm/file-to-text",
+  "version": "0.0.1",
+  "description": "Converts most common file types into clean text or Markdown",
+  "keywords": [
+    "file-to-text",
+    "ocr",
+    "tesseract",
+    "speech-to-text",
+    "word",
+    "excel",
+    "powerpoint"
+  ],
+  "homepage": "https://github.com/cityssm/node-file-to-text#readme",
+  "bugs": {
+    "url": "https://github.com/cityssm/node-file-to-text/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cityssm/node-file-to-text.git"
+  },
+  "license": "MIT",
+  "author": "The Corporation of the City of Sault Ste. Marie",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "parsers/*",
+    "debug.*",
+    "index.*"
+  ],
+  "scripts": {
+    "coverage": "c8 --reporter=lcov --reporter=text --reporter=text-summary node --test test/test.js",
+    "test": "node --test test/test.js"
+  },
+  "dependencies": {
+    "@cityssm/has-package": "^1.0.0",
+    "debug": "^4.4.3",
+    "mrmime": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.13",
+    "@types/node": "^25.9.1",
+    "eslint-config-cityssm": "^40.1.0",
+    "prettier-config-cityssm": "^2.1.2"
+  },
+  "optionalDependencies": {
+    "@cityssm/whisper-speech-to-text": "^0.1.1",
+    "officeparser": "^7.0.3",
+    "tesseract.js": "^7.0.0"
+  }
+}
