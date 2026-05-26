@@ -40,7 +40,7 @@
   "dependencies": {
     "@cityssm/has-package": "^1.0.0",
     "debug": "^4.4.3",
-    "mrmime": "^2.0.1"
+    "mime": "^4.1.0"
   },
   "devDependencies": {
     "@types/debug": "^4.1.13",
@@ -49,8 +49,8 @@
     "prettier-config-cityssm": "^2.1.2"
   },
   "optionalDependencies": {
-    "@cityssm/whisper-speech-to-text": "^0.1.1",
-    "officeparser": "^7.0.3",
+    "@cityssm/whisper-speech-to-text": "^0.2.1",
+    "officeparser": "^7.1.0",
     "tesseract.js": "^7.0.0"
   }
 }

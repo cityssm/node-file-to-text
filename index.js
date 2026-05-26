@@ -1,7 +1,7 @@
 import path from 'node:path';
 import hasPackage from '@cityssm/has-package';
 import Debug from 'debug';
-import { lookup as lookupMimeType, mimes } from 'mrmime';
+import mime from 'mime';
 import { DEBUG_NAMESPACE } from './debug.config.js';
 const debug = Debug(`${DEBUG_NAMESPACE}:index`);
 const officeParserMimeTypes = new Set([
@@ -16,9 +16,6 @@ const officeParserMimeTypes = new Set([
     'text/html',
     'text/rtf'
 ]);
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-mimes.docx ??=
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 const hasOfficeParser = await hasPackage('officeparser');
 const hasWhisper = await hasPackage('@cityssm/whisper-speech-to-text');
 const hasTesseract = await hasPackage('tesseract.js');
@@ -31,9 +28,9 @@ const hasTesseract = await hasPackage('tesseract.js');
 export default async function fileToText(filePath, options) {
     debug('Processing file: %s', filePath);
     const fileName = path.basename(filePath);
-    const mimeType = lookupMimeType(fileName);
+    const mimeType = mime.getType(fileName);
     debug('Determined MIME type: %s', mimeType);
-    if (mimeType === undefined) {
+    if (mimeType === null) {
         throw new Error(`Unable to determine MIME type for file: ${filePath}`);
     }
     else if (officeParserMimeTypes.has(mimeType) && hasOfficeParser) {
