@@ -14,6 +14,7 @@ await describe('file-to-text', async () => {
         'sample.png',
         'sample.txt',
         'sample.wav'
+        // 'private.docx'
     ];
     const unsupportedSampleFiles = ['unsupported.bin'];
     for (const fileName of supportedSampleFiles) {

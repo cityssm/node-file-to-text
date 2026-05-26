@@ -8,7 +8,9 @@ import type { FileToTextOptions } from '../types.js'
 
 const config: OfficeConverterConfig<UniversalGeneratorFormat> = {
   generatorConfig: {
-    renderMetadata: false
+    renderMetadata: false,
+
+    includeImages: false
   }
 }
 

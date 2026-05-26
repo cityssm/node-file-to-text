@@ -1,7 +1,8 @@
 import { OfficeConverter } from 'officeparser';
 const config = {
     generatorConfig: {
-        renderMetadata: false
+        renderMetadata: false,
+        includeImages: false
     }
 };
 const metadataBlockBounds = '---\n';
