@@ -30,6 +30,8 @@ await describe('file-to-text', async () => {
       try {
         const text = await fileToText(filePath)
 
+        console.log(`Text output for ${fileName}:\n${text}\n`)
+
         assert.ok(
           text.length > 0,
           `Expected non-empty text output for ${fileName}`

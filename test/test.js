@@ -21,6 +21,7 @@ await describe('file-to-text', async () => {
             const filePath = `./test/samples/${fileName}`;
             try {
                 const text = await fileToText(filePath);
+                console.log(`Text output for ${fileName}:\n${text}\n`);
                 assert.ok(text.length > 0, `Expected non-empty text output for ${fileName}`);
                 assert.ok(text.includes('sample'), `Expected text output to include "sample" for ${fileName}`);
             }
