@@ -1,3 +1,4 @@
+/* eslint-disable node-test/no-async-describe */
 /* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
 import assert from 'node:assert';
@@ -21,7 +22,9 @@ await describe('file-to-text', async () => {
         await describe(`should process "${fileName}" correctly`, async () => {
             const filePath = `./test/samples/${fileName}`;
             try {
-                const text = await fileToText(filePath);
+                const text = await fileToText(filePath, {
+                    language: 'en'
+                });
                 console.log(`Text output for ${fileName}:\n${text}\n`);
                 assert.ok(text.length > 0, `Expected non-empty text output for ${fileName}`);
                 assert.ok(text.includes('sample'), `Expected text output to include "sample" for ${fileName}`);

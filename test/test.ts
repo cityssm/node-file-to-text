@@ -1,3 +1,4 @@
+/* eslint-disable node-test/no-async-describe */
 /* eslint-disable no-console */
 /* eslint-disable no-await-in-loop */
 
@@ -30,7 +31,9 @@ await describe('file-to-text', async () => {
       const filePath = `./test/samples/${fileName}`
 
       try {
-        const text = await fileToText(filePath)
+        const text = await fileToText(filePath, {
+          language: 'en'
+        })
 
         console.log(`Text output for ${fileName}:\n${text}\n`)
 

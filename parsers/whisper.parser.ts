@@ -4,7 +4,10 @@ import type { FileToTextOptions } from '../types.js'
 
 export default async function audioToText(
   filePath: string,
-  _options?: FileToTextOptions
+  options?: FileToTextOptions
 ): Promise<string> {
-  return await speechToText(filePath)
+  return await speechToText(filePath, {
+    language: options?.language,
+    ...options?.whisperOptions
+  })
 }

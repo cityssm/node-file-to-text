@@ -45,7 +45,9 @@ export default async function fileToText(
 
   if (mimeType === null) {
     throw new Error(`Unable to determine MIME type for file: ${filePath}`)
-  } else if (officeParserMimeTypes.has(mimeType) && hasOfficeParser) {
+  }
+
+  if (hasOfficeParser && officeParserMimeTypes.has(mimeType)) {
     try {
       const { default: officeToText } =
         await import('./parsers/officeparser.parser.js')
@@ -56,7 +58,9 @@ export default async function fileToText(
         cause: error
       })
     }
-  } else if (mimeType.startsWith('audio/') && hasWhisper) {
+  }
+
+  if (hasWhisper && mimeType.startsWith('audio/')) {
     try {
       const { default: speechToText } =
         await import('./parsers/whisper.parser.js')
@@ -68,7 +72,9 @@ export default async function fileToText(
         { cause: error }
       )
     }
-  } else if (mimeType.startsWith('image/') && hasTesseract) {
+  }
+
+  if (hasTesseract && mimeType.startsWith('image/')) {
     try {
       const { default: imageToText } =
         await import('./parsers/tesseract.parser.js')
@@ -79,7 +85,9 @@ export default async function fileToText(
         cause: error
       })
     }
-  } else if (mimeType.startsWith('text/')) {
+  }
+
+  if (mimeType.startsWith('text/')) {
     try {
       const fs = await import('node:fs/promises')
       return await fs.readFile(filePath, 'utf8')

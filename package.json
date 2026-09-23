@@ -44,13 +44,16 @@
   },
   "devDependencies": {
     "@types/debug": "^4.1.13",
-    "@types/node": "^25.9.1",
-    "eslint-config-cityssm": "^40.1.0",
-    "prettier-config-cityssm": "^2.1.2"
+    "@types/node": "^26.6.2",
+    "eslint-config-cityssm": "^54.0.0",
+    "prettier-config-cityssm": "^2.2.0"
   },
   "optionalDependencies": {
-    "@cityssm/whisper-speech-to-text": "^0.2.1",
-    "officeparser": "^7.1.0",
+    "@cityssm/whisper-speech-to-text": "^0.2.2",
+    "officeparser": "^8.0.0",
     "tesseract.js": "^7.0.0"
+  },
+  "allowScripts": {
+    "tesseract.js@7.0.0": true
   }
 }

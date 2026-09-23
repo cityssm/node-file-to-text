@@ -33,7 +33,7 @@ export default async function fileToText(filePath, options) {
     if (mimeType === null) {
         throw new Error(`Unable to determine MIME type for file: ${filePath}`);
     }
-    else if (officeParserMimeTypes.has(mimeType) && hasOfficeParser) {
+    if (hasOfficeParser && officeParserMimeTypes.has(mimeType)) {
         try {
             const { default: officeToText } = await import('./parsers/officeparser.parser.js');
             return await officeToText(filePath, options);
@@ -44,7 +44,7 @@ export default async function fileToText(filePath, options) {
             });
         }
     }
-    else if (mimeType.startsWith('audio/') && hasWhisper) {
+    if (hasWhisper && mimeType.startsWith('audio/')) {
         try {
             const { default: speechToText } = await import('./parsers/whisper.parser.js');
             return await speechToText(filePath, options);
@@ -53,7 +53,7 @@ export default async function fileToText(filePath, options) {
             throw new Error('Error processing audio file with "@cityssm/whisper-speech-to-text".', { cause: error });
         }
     }
-    else if (mimeType.startsWith('image/') && hasTesseract) {
+    if (hasTesseract && mimeType.startsWith('image/')) {
         try {
             const { default: imageToText } = await import('./parsers/tesseract.parser.js');
             return await imageToText(filePath, options);
@@ -64,7 +64,7 @@ export default async function fileToText(filePath, options) {
             });
         }
     }
-    else if (mimeType.startsWith('text/')) {
+    if (mimeType.startsWith('text/')) {
         try {
             const fs = await import('node:fs/promises');
             return await fs.readFile(filePath, 'utf8');
