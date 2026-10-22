@@ -8,7 +8,6 @@ export const DEBUG_NAMESPACE = 'file-to-text';
  */
 let DEBUG_ENABLE_NAMESPACES = `${DEBUG_NAMESPACE}:*`;
 if (await hasPackage('@cityssm/whisper-speech-to-text')) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion
     const whisperDebugNamespaces = (await import('@cityssm/whisper-speech-to-text/debug'));
     DEBUG_ENABLE_NAMESPACES += `,${whisperDebugNamespaces.DEBUG_ENABLE_NAMESPACES}`;
 }

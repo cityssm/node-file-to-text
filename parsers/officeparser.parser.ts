@@ -22,7 +22,7 @@ export default async function officeToText(
 ): Promise<string> {
   const result = await OfficeConverter.convert(filePath, 'md', config)
 
-  let resultValue =
+  let resultValue: string =
     // eslint-disable-next-line @typescript-eslint/no-base-to-string
     typeof result.value === 'string' ? result.value : result.value.toString()
 
